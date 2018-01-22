@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+
+<form action="/action_page.php">
+<html>
+<body>
+<h2>UPLOAD THE IMAGE OR FILES</h2>
+</html>
+</body>
+
+  <input type="file" name="pic" accept="image/*">
+  <button type="button" onclick="alert('sucessfully uploaded!')">Submit</button>
+
+
+</form>
+
+<style>
+h1 {
+    border-bottom: 4px dotted blue;
+}
+</style>
+
+
+<h1><font color="red">Drag the image into the rectangle</font></h1>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="C:/Users/win/Desktop/secondprog/micky.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+</body>
+</html>
+
+
+
+
+
+
+
+
